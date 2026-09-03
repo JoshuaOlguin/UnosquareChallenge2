@@ -7,6 +7,9 @@ test('ValidateEndToEndShoppingWorkflow_XboxSeriesX', async ({ page }) => {
 
   console.log("Searching parameter: " + itemName);
   // TODO: implement all logic that I code in Selenium, Nunit and C# test project to valiadate E2E on Amazon web site
+
+  await page.getByRole('searchbox', { name: 'Search Amazon' }).fill(itemName);
+  await page.getByRole('button', { name: 'Go', exact: true }).click();
 });
 
 test('ValidateEndToEndShoppingWorkflow_PlayStation5', async ({ page }) => {
@@ -16,4 +19,8 @@ test('ValidateEndToEndShoppingWorkflow_PlayStation5', async ({ page }) => {
 
   console.log("Searching parameter: " + itemName);
   // TODO: implement all logic that I code in Selenium, Nunit and C# test project to valiadate E2E on Amazon web site
+
+  await page.getByRole('searchbox', { name: 'Search Amazon' }).fill(itemName);
+  await page.getByRole('button', { name: 'Go', exact: true }).click();
 });
+
