@@ -1,4 +1,4 @@
-name: Run Playwright and JavaScript/TypeScript Tests
+name: Run Playwright and TypeScript Tests
 on:
   push:
     branches: [ main, master ]
