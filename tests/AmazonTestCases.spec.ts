@@ -21,6 +21,8 @@ test('ValidateEndToEndShoppingWorkflow_XboxSeriesX', async ({ page }) => {
   
   const selectedProductPrice = await searchForWebPage.getPriceOfFirstItemOfSearchResult(selectedItem);
   await searchForWebPage.clickOnSelectedItem(selectedItem);
+
+  //Testing YAML file
 });
 
 test('ValidateEndToEndShoppingWorkflow_PlayStation5', async ({ page }) => {
