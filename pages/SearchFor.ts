@@ -31,6 +31,7 @@ export class SearchFor {
     async getPriceOfFirstItemOfSearchResult(firstItemWithPrice: Locator): Promise<number> {
         const strPrice = await firstItemWithPrice
         .locator('[data-cy="price-recipe"] .a-price .a-offscreen')
+        .first()
         .innerText();
 
         const price = Number(strPrice.replace(/[^0-9.-]+/g, ''));
