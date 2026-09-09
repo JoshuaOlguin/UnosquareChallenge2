@@ -32,5 +32,5 @@ export class Home {
   await item
     .locator("[class*='a-size-medium a-spacing-none a-color-base a-text-normal']")
     .click();
-}
+  }
 }
