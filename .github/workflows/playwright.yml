@@ -3,10 +3,12 @@ name: Run Playwright and TypeScript Tests
 on:
   push:
     branches:
+      - Master
       - main
 
   pull_request:
     branches:
+      - Master
       - main
 
   workflow_dispatch:
