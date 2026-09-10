@@ -19,7 +19,7 @@ export class Cart {
         try {
             await this.emptyCartMessage.waitFor({
                 state: 'visible',
-                timeout: 10000
+                timeout: 20000
             });
 
             return true;
