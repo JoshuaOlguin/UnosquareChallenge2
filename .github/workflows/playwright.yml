@@ -13,6 +13,10 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  contents: read
+  checks: write
+
 jobs:
   test:
     timeout-minutes: 60
@@ -36,6 +40,21 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
+      # Publish test results in GitHub Actions
+      - name: Publish Playwright Test Results
+        if: ${{ !cancelled() }}
+        uses: dorny/test-reporter@v3
+        with:
+          name: Playwright Tests
+          path: test-results/results.xml
+          reporter: java-junit
+          fail-on-error: true
+          fail-on-empty: true
+          list-suites: all
+          list-tests: all
+          use-actions-summary: true
+
+      # Upload HTML Playwright report
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
@@ -44,6 +63,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+      # Upload screenshots, videos and traces
       - name: Upload Playwright test results
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
